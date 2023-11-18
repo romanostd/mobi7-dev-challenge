@@ -1,0 +1,17 @@
+<table>
+    <thead>
+      <tr>
+        <th>Plate</th>
+        <th>POI</th>
+        <th>Total time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of processedData">
+        <td>{{ item.plate }}</td>
+        <td>{{ item.poiName }}</td>
+        <td>{{ item.totalTime | metersToKilometers }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

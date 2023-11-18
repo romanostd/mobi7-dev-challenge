@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+    margin: 0;
+    // padding-top: [Altura do Header];
+    // padding-bottom: [Altura do Footer]; 
+    min-height: 100%;
+    position: relative;
+  }
+  
+ 
+  body, html {
+    margin: 0;
+    padding-top: 60px; 
+    padding-bottom: 40px; 
+    min-height: 100%;
+    position: relative;
+  }
+  
+
+  .content-wrapper {
+    padding-top: 60px; 
+    padding-bottom: 40px; 
+  }
