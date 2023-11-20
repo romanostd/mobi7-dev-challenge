@@ -1,22 +1,21 @@
-body, html {
-    margin: 0;
-    // padding-top: [Altura do Header];
-    // padding-bottom: [Altura do Footer]; 
-    min-height: 100%;
-    position: relative;
-  }
-  
- 
-  body, html {
-    margin: 0;
-    padding-top: 60px; 
-    padding-bottom: 40px; 
-    min-height: 100%;
-    position: relative;
-  }
-  
+body,
+html {
+  margin: 0;
+  min-height: 100%;
+  position: relative;
+  min-width: 350px;
+}
 
-  .content-wrapper {
-    padding-top: 60px; 
-    padding-bottom: 40px; 
-  }
+body,
+html {
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  min-height: 100%;
+  position: relative;
+}
+
+.content-wrapper {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}

@@ -1,17 +1,52 @@
-<table>
+<div class="filter-container">
+  <label for="plateInput" class="form-label">Placa</label>
+  <input
+    type="text"
+    [formControl]="plateFilter"
+    class="form-control"
+    placeholder="Digite a placa"
+  />
+
+  <label for="dateInput" class="form-label">Data</label>
+  <input type="date" [formControl]="dateFilter" class="form-control" />
+
+  <button class="mob-button" (click)="applyFilters()">Aplicar Filtros</button>
+</div>
+
+<div
+  class="table-container"
+  *ngIf="!isLoading && processedData.length > 0; else noDataTemplate"
+>
+  <div *ngIf="isLoading" class="loading-indicator">
+    <div class="spinner"></div>
+  </div>
+
+  <table>
     <thead>
       <tr>
-        <th>Plate</th>
+        <th>Placa</th>
         <th>POI</th>
-        <th>Total time</th>
+        <th>Tempo total</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of processedData">
         <td>{{ item.plate }}</td>
         <td>{{ item.poiName }}</td>
-        <td>{{ item.totalTime | metersToKilometers }}</td>
+        <td>{{ item.totalTime | secondsToTime }}</td>
       </tr>
     </tbody>
   </table>
-  
+</div>
+
+<ng-template #noDataTemplate>
+  <div *ngIf="isLoading; else noResults" class="loading-indicator">
+    <div class="spinner"></div>
+  </div>
+
+  <ng-template #noResults>
+    <p class="no-data-message">
+      Não foram encontrados registros com os filtros aplicados.
+    </p>
+  </ng-template>
+</ng-template>

@@ -6,7 +6,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MetersToKilometersPipe } from './pipes/meters-to-kilometers.pipe';
+import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { MetersToKilometersPipe } from './pipes/meters-to-kilometers.pipe';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    MetersToKilometersPipe
+    SecondsToTimePipe
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
