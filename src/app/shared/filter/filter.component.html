@@ -5,7 +5,7 @@
     [formControl]="plateFilter"
     class="form-control"
     placeholder="Digite a placa"
-    (keydown.enter)="onApplyFilters()"
+    (keydown.enter)="onApplyFilters(true)"
     (input)="onFilterChange()"
   />
 

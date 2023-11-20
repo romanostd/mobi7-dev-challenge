@@ -16,8 +16,12 @@ export class FilterComponent {
 
   constructor() {}
 
-  onApplyFilters(): void {
-    this.filtersApplied = true;
+  onApplyFilters(isEnterValue?: boolean): void {
+    if (this.plateFilter.value == '' && isEnterValue == true) {
+      return;
+    } else {
+      this.filtersApplied = true;
+    }
     this.applyFilters.emit({
       plate: this.plateFilter.value.toUpperCase(),
       date: this.formatDate(this.dateFilter.value),
@@ -25,8 +29,8 @@ export class FilterComponent {
   }
 
   onResetFilters(): void {
-    this.plateFilter.reset();
-    this.dateFilter.reset();
+    this.plateFilter.setValue('');
+    this.dateFilter.setValue('');
     this.filtersApplied = false;
     this.resetFilters.emit();
   }
