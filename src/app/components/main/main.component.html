@@ -1,18 +1,5 @@
-<div class="filter-container">
-  <label for="plateInput" class="form-label">Placa</label>
-  <input
-    type="text"
-    [formControl]="plateFilter"
-    class="form-control"
-    placeholder="Digite a placa"
-  />
 
-  <label for="dateInput" class="form-label">Data</label>
-  <input type="date" [formControl]="dateFilter" class="form-control" />
-
-  <button class="mob-button" (click)="applyFilters()">Aplicar Filtros</button>
-</div>
-
+<app-filter (applyFilters)="onApplyFilters($event)" (resetFilters)="onResetFilters()"></app-filter>
 <div
   class="table-container"
   *ngIf="!isLoading && processedData.length > 0; else noDataTemplate"

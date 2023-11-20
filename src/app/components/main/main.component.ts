@@ -13,34 +13,27 @@ export class MainComponent implements OnInit {
   plateFilter = new FormControl('');
   dateFilter = new FormControl('');
   isLoading: boolean = false;
+  filtersApplied: boolean = false;
 
   constructor(private processDataService: ProcessDataService) {}
 
   ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData(plate: string = '', date: string = ''): void {
     this.isLoading = true;
-    this.processDataService.calculateTimeInPois().subscribe((data) => {
+    this.processDataService.calculateTimeInPois(plate, date).subscribe((data) => {
       this.processedData = data;
       this.isLoading = false;
     });
   }
 
-  applyFilters(): void {
-    this.isLoading = true;
-    this.processedData = [];
-    this.processDataService
-      .calculateTimeInPois(
-        this.plateFilter.value,
-        this.formatDate(this.dateFilter.value)
-      )
-      .subscribe((data) => {
-        this.processedData = data;
-        this.isLoading = false;
-      });
+  onApplyFilters(filters: { plate: string; date: string }): void {
+    this.fetchData(filters.plate, filters.date);
   }
 
-  private formatDate(dateStr: string): string {
-    if (!dateStr) return '';
-    const [year, month, day] = dateStr.split('-');
-    return `${month}/${day}/${year}`;
+  onResetFilters(): void {
+    this.fetchData();
   }
 }
